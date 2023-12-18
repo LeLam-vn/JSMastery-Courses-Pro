@@ -1,17 +1,33 @@
-// import { UserButton } from '@clerk/nextjs'
-// import { useTheme } from '@/context/ThemeProvider'
+import { Button } from '@/components/ui/button'
+import LocalSearchbar from '@/components/shared/search/LocalSearchBar'
+import Link from 'next/link'
 
-export default function Home_Page() {
-	// const { mode } = useTheme()
-	// console.log ("mode-page.jsx: ", mode)
-
+export default function Home() {
 	return (
-		<div>
-			{/* {mode} */}
-			{/* <UserButton afterSignOutUrl="/" />
-			<h1>Home Page</h1>
-			<div>Your home page's content can go here.</div>
-			<p>http://localhost:3000/</p> */}
-		</div>
+		<>
+			<div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-conter">
+				<h1 className="h1-bold text-dark100_light900 ">
+					All Questions
+				</h1>
+				<Link
+					href="/ask-question"
+					className="flex justify-end max-sm:w-full"
+				>
+					<Button className="primary-gradient min-h-[46px] px-4 py-3 ! text-light-900">
+						Ask a Question
+					</Button>
+				</Link>
+			</div>
+			<div className='mt-11 flex justify-between gap-5 max-sm:flex-col sm:items-center'>
+				<LocalSearchbar	
+					route='/'
+					iconPosition='left'
+					imgSrc='/assets/icons/search.svg'
+					placeholder="Search for questions"
+					otherClass='flex-1'
+				/>
+				Filter
+			</div>
+		</>
 	)
 }
