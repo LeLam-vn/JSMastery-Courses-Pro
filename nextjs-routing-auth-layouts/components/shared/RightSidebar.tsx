@@ -6,24 +6,24 @@ import React from 'react'
 const RightSidebar = () => {
 	const hotQuestion = [
 		{
-			_id: 1,
+			_id: '1',
 			tittle: 'Best practices for data fetching in a Next.js application with Server-Side Rendering (SSR)?',
 		},
 		{
-			_id: 2,
+			_id: '2',
 			tittle: 'Is it only me or the font is bolder than necessary? practices for data fetching in a Next.js application with Server-Side Rendering (SSR)?',
 		},
-		{ _id: 3, tittle: 'Can I get the course for free?' },
-		{ _id: 4, tittle: 'Redux Toolkit Not Updating State as Expected' },
-		{ _id: 5, tittle: 'Async/Await Function Not Handling Errors Properly' },
+		{ _id: '3', tittle: 'Can I get the course for free?' },
+		{ _id: '4', tittle: 'Redux Toolkit Not Updating State as Expected' },
+		{ _id: '5', tittle: 'Async/Await Function Not Handling Errors Properly' },
 	]
 
 	const popularTags = [
-		{ _id: 1, name: 'javascript', totalQuestions: 3 },
-		{ _id: 2, name: 'react', totalQuestions: 5 },
-		{ _id: 3, name: 'next', totalQuestions: 8 },
-		{ _id: 4, name: 'vue', totalQuestions: 11 },
-		{ _id: 5, name: 'redux', totalQuestions: 100 },
+		{ _id: '1', name: 'javascript', totalQuestions: 3 },
+		{ _id: '2', name: 'react', totalQuestions: 5 },
+		{ _id: '3', name: 'next', totalQuestions: 8 },
+		{ _id: '4', name: 'vue', totalQuestions: 11 },
+		{ _id: '5', name: 'redux', totalQuestions: 100 },
 	]
 	return (
 		<section className="background-light900_dark200 light-border custom-scrollbar sticky right-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-l p-6 pt-36 shadow-light-300 dark:shadow-none max-xl:hidden w-[350px]">
