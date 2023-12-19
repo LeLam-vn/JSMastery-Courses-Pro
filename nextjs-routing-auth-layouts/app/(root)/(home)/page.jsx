@@ -19,7 +19,7 @@ export default function Home() {
 			author:{ _id: '1', name: 'Henry', picture: '/assets/icons/bronze-medal.svg' },
 			
 			upvotes: 3410,
-			views: 10344 0,
+			views: 10344,
 			answers: 4,
 			createdAt:new Date('2021-09-01T12:00:00.000Z'),
 		},

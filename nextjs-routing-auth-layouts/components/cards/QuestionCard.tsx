@@ -18,7 +18,7 @@ interface QuestionProps {
 		picture: string
 	};
 	upvotes: number;
-	views: Number;
+	views: number;
 	answers: Array<object>;
 	createdAt: Date;
 }
