@@ -20,11 +20,12 @@ import React, { useRef, useState } from 'react'
 import { Editor } from '@tinymce/tinymce-react'
 import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
+import { createQuestion } from '@/lib/actions/question.action'
 
 const Question = () => {
 	const editorRef = useRef(null)
 	const [isSubmitting, setIsSubmitting] = useState(false)
-	const type:any = 'create '
+	const type: any = 'create '
 	// const log = () => {
 	// 	if (editorRef.current) {
 	// 		//@ts-ignore
@@ -43,18 +44,19 @@ const Question = () => {
 	})
 
 	// 2. Define a submit handler.
-	function onSubmit(values: z.infer<typeof QuestionsSchema>) {
+	async function onSubmit(values: z.infer<typeof QuestionsSchema>) {
 		setIsSubmitting(true)
 		console.log(values)
 		try {
-			//make an async call to your API -> create a question 
+			//make an async call to your API -> create a question
 			//Contian all form data
 
-			//navigate to home page 
+			// Client Side for Data Base
+			await createQuestion({})
+			//navigate to home page
 		} catch (error) {
-			
 		} finally {
-			 setIsSubmitting(false)
+			setIsSubmitting(false)
 		}
 	}
 
@@ -142,6 +144,10 @@ const Question = () => {
 										onInit={(evt, editor) =>
 											//@ts-ignore
 											(editorRef.current = editor)
+										}
+										onBlur={field.onBlur}
+										onEditorChange={(content) =>
+											field.onChange(content)
 										}
 										initialValue=""
 										init={{
