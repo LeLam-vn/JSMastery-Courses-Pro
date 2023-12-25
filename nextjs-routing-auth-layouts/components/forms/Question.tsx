@@ -21,11 +21,20 @@ import { Editor } from '@tinymce/tinymce-react'
 import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
 import { createQuestion } from '@/lib/actions/question.action'
+import { Router } from 'next/router'
+import {useRouter, usePathname} from 'next/navigation'
 
-const Question = () => {
+interface Props {
+	mongoUserId: string
+}
+
+const Question = ({mongoUserId}: Props ) => {
 	const editorRef = useRef(null)
 	const [isSubmitting, setIsSubmitting] = useState(false)
-	const type: any = 'create '
+	const type: any = 'create'
+
+	const router = useRouter()
+	const pathname = usePathname()
 	// const log = () => {
 	// 	if (editorRef.current) {
 	// 		//@ts-ignore
@@ -52,8 +61,16 @@ const Question = () => {
 			//Contian all form data
 
 			// Client Side for Data Base
-			await createQuestion({})
+			await createQuestion({
+				title: values.title,
+				content: values.explanation,
+				tags: values.tags,
+				author: JSON.parse(mongoUserId)
+			})
 			//navigate to home page
+
+			router.push('/')
+
 		} catch (error) {
 		} finally {
 			setIsSubmitting(false)
