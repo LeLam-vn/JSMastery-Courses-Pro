@@ -3,24 +3,24 @@ import Link from 'next/link'
 import React from 'react'
 import RenderTag from '../shared/RenderTag'
 import Metric from '../shared/Metric'
-import {formatAndDivideNumber, getTimeStamp} from '@/lib/utils'
+import { formatAndDivideNumber, getTimeStamp } from '@/lib/utils'
 
 interface QuestionProps {
-	_id: string;
-	title: string;
+	_id: string
+	title: string
 	tags: {
-		_id: string;
-		name: string;
+		_id: string
+		name: string
 	}[]
 	author: {
 		_id: string
 		name: string
 		picture: string
-	};
-	upvotes: number;
-	views: number;
-	answers: Array<object>;
-	createdAt: Date;
+	}
+	upvotes: number
+	views: number
+	answers: Array<object>
+	createdAt: Date
 }
 
 const QuestionCard = ({
@@ -33,7 +33,8 @@ const QuestionCard = ({
 	answers,
 	createdAt,
 }: QuestionProps) => {
-	// console.log('author: ', author)
+	console.log('author: ', author)
+	console.log('tags: ', tags)
 	return (
 		<div className="card-wrapper p-9 sm:px-11 rounded-[10px] ">
 			<div className="">
@@ -42,6 +43,7 @@ const QuestionCard = ({
 						{getTimeStamp(createdAt)}
 					</span>
 					<Link href={`/question/${_id}`}>
+					{/* <Link href={`/question`}> */}
 						<h3 className="sm:h3-semiblod base-semibold text-dark200_light900 line-clamp-1 flex-1">
 							{title}
 						</h3>
@@ -50,15 +52,17 @@ const QuestionCard = ({
 				{/* If signed in add edit delete actions */}
 			</div>
 			<div className="mt-3.5 flex flex-wrap gap-2">
-				{tags.map((tag) => {
+				{/* {tags.map((tag) => {
 					return (
 						<RenderTag
 							key={tag._id}
 							_id={tag._id}
 							name={tag.name}
+							// totalQuestions={0}
+							// showCount={false}
 						/>
 					)
-				})}
+				})} */}
 			</div>
 			<div className="flex-between mt-6 flex-wrap w-full gap-3">
 				<Metric
@@ -80,7 +84,7 @@ const QuestionCard = ({
 				<Metric
 					imgUrl="/assets/icons/message.svg"
 					alt="Message"
-					value={(answers.length)}
+					value={answers.length}
 					title=" Answers "
 					textStyles="smal-medium text-dark400_light800"
 				/>

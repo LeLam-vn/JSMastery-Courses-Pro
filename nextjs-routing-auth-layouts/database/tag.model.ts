@@ -1,5 +1,7 @@
 import { Schema, models, model, Document } from 'mongoose'
 
+//'Create Question Action - 02:40'
+
 export interface ITag extends Document {
     name: string;
     description: string;
@@ -14,7 +16,7 @@ const TagSchema = new Schema({
     description: { type: String, required: true },
     questions: [{ type: Schema.Types.ObjectId, ref: 'Question' }],
     followers: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    createdon: { type: Date, default: Date.now },
+    createdOn: { type: Date, default: Date.now },
 });
 
 const Tag = models.Tag || model('Tag', TagSchema);

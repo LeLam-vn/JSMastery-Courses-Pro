@@ -41,7 +41,7 @@ const Question = ({mongoUserId}: Props ) => {
 	// 		console.log(editorRef.current.getContent())
 	// 	}
 	// }
-
+   
 	// 1. Define your form.
 	const form = useForm<z.infer<typeof QuestionsSchema>>({
 		resolver: zodResolver(QuestionsSchema),
@@ -60,14 +60,15 @@ const Question = ({mongoUserId}: Props ) => {
 			//make an async call to your API -> create a question
 			//Contian all form data
 
-			// Client Side for Data Base
+			// Client Side for Data Base - //Create Question Action - 18:56
 			await createQuestion({
 				title: values.title,
 				content: values.explanation,
 				tags: values.tags,
-				author: JSON.parse(mongoUserId)
+				author: JSON.parse(mongoUserId),
+				path: pathname,
 			})
-			//navigate to home page
+			//navigate to home page -//Create Question Action - 18:56
 
 			router.push('/')
 

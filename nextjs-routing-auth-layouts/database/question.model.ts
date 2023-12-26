@@ -21,9 +21,9 @@ const QuestionSchema = new Schema({
     downVotes:[{type: Schema.Types.ObjectId, ref: 'User'}],
     author:{type: Schema.Types.ObjectId, ref: 'User'},
     answers:[{type: Schema.Types.ObjectId, ref: 'Answer'}],
-    createAt:{type: Date, default: Date.now},
+    createdAt:{type: Date, default: Date.now},
 })
 
 const Question = models.Question || model('Question', QuestionSchema);
 
-export default Question 
+export default Question
